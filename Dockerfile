@@ -1,4 +1,13 @@
+################################################################################################
+#####
+##### DEV
+#####
+################################################################################################
 FROM golang:1.10-alpine AS dev
+
+#########################################################
+## Install build dependencies
+#########################################################
 
 # program variables 
 ARG PROG_REPO_VCS=${PROG_REPO_VCS:-"github.com"}
@@ -13,8 +22,11 @@ ARG PROG_DEPS_MGR=${PROG_DEPS_MGR:-"glide"}
 
 # apk
 ARG APK_DEV=${APK_DEV:-"make cmake mercurial jq nano bash musl-dev openssl ca-certificates"}
-
 RUN apk add --no-cache --no-progress ${APK_DEV}
+
+#########################################################
+## Copy files in the container & build targets
+#########################################################
 
 COPY .  ${PROG_REPO_URI_ABS}
 WORKDIR ${PROG_REPO_URI_ABS}
@@ -22,19 +34,40 @@ WORKDIR ${PROG_REPO_URI_ABS}
 RUN cd ${PROG_REPO_URI_ABS} \
  	&& make deps-all-glide
 
+################################################################################################
+#####
+##### BUILDER
+#####
+################################################################################################
 FROM golang:1.10-alpine AS builder
 
-ARG APK_BUILDER=${APK_BUILDER:-"make cmake mercurial openssl ca-certificates"}
+#########################################################
+## Install build dependencies
+#########################################################
 
+ARG APK_BUILDER=${APK_BUILDER:-"make cmake mercurial openssl ca-certificates"}
 RUN apk add --no-cache --no-progress ${APK_BUILDER}
 
 COPY .  ${PROG_REPO_URI_ABS}
 WORKDIR ${PROG_REPO_URI_ABS}
 
+#########################################################
+## Copy files in the container & build targets
+#########################################################
+
 RUN cd ${PROG_REPO_URI_ABS} \
  	&& make build
 
+################################################################################################
+#####
+##### RUNTIME
+#####
+################################################################################################
 FROM alpine:3.7 AS runtime
+
+#########################################################
+## Install build dependencies
+#########################################################
 
 # tini
 ARG TINI_VCS_URI=${TINI_VCS_URI:-"github.com/krallin/tini"}
@@ -68,6 +101,10 @@ RUN apk --no-cache --no-progress add ${APK_RUNTIME} \
 # Switch to user context
 USER ${PROG_USER}
 WORKDIR ${PROG_HOME}
+
+#########################################################
+## Copy files in the container & build targets
+#########################################################
 
 # Copy git2etcd binary to /opt/${PROG_HOME}/bin
 COPY --from=builder ${PROG_REPO_URI_ABS}/bin ${PROG_HOME}/bin

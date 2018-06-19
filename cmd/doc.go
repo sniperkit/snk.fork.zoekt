@@ -34,11 +34,12 @@
 //
 // - zoekt-mirror-gerrit - Mirror remote Gerrit - CLI
 // $ go install github.com/sniperkit/zoekt/cmd/zoekt-mirror-gerrit
-// $ $GOPATH/bin/zoekt-mirror-gerrit -dest ~/repos/
+// $ $GOPATH/bin/zoekt-mirror-gerrit -dest ~/repos/ ssh://<USERNAME>@gerrit.wikimedia.org:29418/mediawiki/core.git
 //
 // - zoekt-mirror-github - Mirror remote Github repositories - CLI
 // $ go install github.com/sniperkit/zoekt/cmd/zoekt-mirror-github
 // $ $GOPATH/bin/zoekt-mirror-github -dest ~/repos/ https://github.com/google/go-github
+// $ $GOPATH/bin/zoekt-mirror-github -dest ~/repos/ git://github.com/google/go-github.git
 //
 // Zoekt's webservices:
 //
