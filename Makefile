@@ -48,12 +48,6 @@ DOCKER_IMAGE 				:= $(DOCKER_IMAGE_OWNER)/$(DOCKER_IMAGE_BASENAME):$(DOCKER_IMAG
 DOCKER_MULTI_STAGE_IMAGE 	:= $(DOCKER_IMAGE_OWNER)/$(DOCKER_IMAGE_BASENAME)-multi:$(DOCKER_IMAGE_TAG)
 
 ################################################################################################
-## make
-
-#### vars 
-# TARGETS ?= $(shell awk 'BEGIN {FS = \":.*?## \"} \/^[a-zA-Z_-]+:.*?\#\# / {sub\(\"\\\\n\",sprintf\(\"\n%22c\",\" \"\), $$2\);printf \"%-20s \", $$1}' $(MAKEFILE_LIST))
-
-################################################################################################
 ## version
 
 # vcs
@@ -79,15 +73,14 @@ BUILD_TIME 		:= $(shell date)
 
 GO15VENDOREXPERIMENT=1
 BUILD_LDFLAGS = \
-	-X '$(REPO_URI)/pkg.Version=$(BUILD_VERSION)'
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).VERSION=$(BUILD_VERSION)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).branchName=$(REPO_BRANCH)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).commitHash=$(COMMIT_HASH)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).commitID=$(COMMIT_ID)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).commitUnix=$(COMMIT_UNIX)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).buildVersion=$(BUILD_VERSION)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).buildCount=$(BUILD_COUNT)' \
-	-X '$(REPO_URI)/cmd/$(PROG_NAME).buildUnix=$(BUILD_UNIX)'
+	-X '$(REPO_URI)/pkg.Version=$(BUILD_VERSION)' \
+	-X '$(REPO_URI)/pkg.branchName=$(REPO_BRANCH)' \
+	-X '$(REPO_URI)/pkg.commitHash=$(COMMIT_HASH)' \
+	-X '$(REPO_URI)/pkg.commitID=$(COMMIT_ID)' \
+	-X '$(REPO_URI)/pkg.commitUnix=$(COMMIT_UNIX)' \
+	-X '$(REPO_URI)/pkg.buildVersion=$(BUILD_VERSION)' \
+	-X '$(REPO_URI)/pkg.buildCount=$(BUILD_COUNT)' \
+	-X '$(REPO_URI)/pkg.buildUnix=$(BUILD_UNIX)'
 
 ################################################################################################
 ## makefile
