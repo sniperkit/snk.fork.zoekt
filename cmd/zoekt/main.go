@@ -24,9 +24,9 @@ import (
 	"runtime/pprof"
 	"time"
 
-	"github.com/google/zoekt"
-	"github.com/google/zoekt/query"
-	"github.com/google/zoekt/shards"
+	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/zoekt/pkg/shards"
 )
 
 const CONTEXT = 20

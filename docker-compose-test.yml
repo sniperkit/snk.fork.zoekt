@@ -1,0 +1,21 @@
+---
+version: '3'
+
+services:
+
+  svc-redis:
+    image: redis:4-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+
+  zkt-test:
+    image: sniperkit/zkt-test
+    environment:
+    - DFK_TEST=testserver:12345
+    ports:
+    - "12345:12345"
+    # depends_on:
+    # - svc-redis
+    restart: always
+  

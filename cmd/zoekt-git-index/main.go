@@ -22,9 +22,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/google/zoekt"
-	"github.com/google/zoekt/build"
-	"github.com/google/zoekt/gitindex"
+	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/zoekt/pkg/build"
+	"github.com/sniperkit/zoekt/pkg/gitindex"
 )
 
 var _ = log.Println

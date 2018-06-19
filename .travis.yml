@@ -1,0 +1,24 @@
+language: go
+
+go:
+  - 1.9.x
+  - 1.10.x
+  - tip
+
+go_import_path: github.com/sniperkit/zoekt
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - go: tip
+
+#services:
+#- rabbitmq
+
+sudo: required
+
+install:
+  - make dependencies
+
+script:
+  - make test-coverage

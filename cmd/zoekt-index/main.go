@@ -23,7 +23,7 @@ import (
 	"runtime/pprof"
 	"strings"
 
-	"github.com/google/zoekt/build"
+	"github.com/sniperkit/zoekt/pkg/build"
 )
 
 type fileAggregator struct {

@@ -31,10 +31,10 @@ import (
 
 	"golang.org/x/net/trace"
 
-	"github.com/google/zoekt"
-	"github.com/google/zoekt/build"
-	"github.com/google/zoekt/shards"
-	"github.com/google/zoekt/web"
+	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/zoekt/pkg/build"
+	"github.com/sniperkit/zoekt/pkg/shards"
+	"github.com/sniperkit/zoekt/pkg/web"
 )
 
 const logFormat = "2006-01-02T15-04-05.999999999Z07"
@@ -239,7 +239,7 @@ func watchdog(dt time.Duration, addr string) {
 	}
 	tick := time.NewTicker(dt)
 
-	for _ = range tick.C {
+	for range tick.C {
 		err := watchdogOnce(context.Background(), client, addr)
 		if err != nil {
 			log.Panicf("watchdog: %v", err)

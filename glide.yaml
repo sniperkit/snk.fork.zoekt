@@ -1,0 +1,29 @@
+package: github.com/sniperkit/zoekt
+import:
+- package: github.com/andygrunwald/go-gerrit
+- package: github.com/fsnotify/fsnotify
+- package: github.com/google/go-github
+  subpackages:
+  - github
+- package: github.com/google/slothfs
+  subpackages:
+  - manifest
+- package: golang.org/x/net
+  subpackages:
+  - context
+  - trace
+- package: golang.org/x/oauth2
+- package: golang.org/x/sync
+  subpackages:
+  - semaphore
+- package: gopkg.in/src-d/go-git.v4
+  subpackages:
+  - config
+  - plumbing
+  - plumbing/filemode
+  - plumbing/format/config
+  - plumbing/object
+testImport:
+- package: github.com/kylelemons/godebug
+  subpackages:
+  - pretty

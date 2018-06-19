@@ -16,7 +16,7 @@
 git repositories should already have been downloaded to the
 --repo_cache directory, eg.
 
-    go install github.com/google/zoekt/cmd/zoekt-repo-index &&
+    go install github.com/sniperkit/zoekt/pkg/cmd/zoekt-repo-index &&
 
     zoekt-repo-index -base_url https://gfiber.googlesource.com/ \
       -manifest_repo_url https://gfiber.googlesource.com/manifests \
@@ -42,9 +42,9 @@ import (
 	"strings"
 
 	"github.com/google/slothfs/manifest"
-	"github.com/google/zoekt"
-	"github.com/google/zoekt/build"
-	"github.com/google/zoekt/gitindex"
+	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/zoekt/pkg/build"
+	"github.com/sniperkit/zoekt/pkg/gitindex"
 
 	git "gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing"

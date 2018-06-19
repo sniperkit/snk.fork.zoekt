@@ -1,0 +1,18 @@
+---
+version: '3'
+
+services:
+
+  zkt-dev:
+    image: sniperkit/zkt-dev:alpine-3.7
+    build:
+      context: .
+      dockefile: dockerfile.multi-stage.alpine-3.7
+      # dockefile: Dockerfile
+    environment:
+    - DFK_TEST=testserver:12345
+    ports:
+    - "12345:12345"
+    # depends_on:
+    # - svc-redis
+    restart: always

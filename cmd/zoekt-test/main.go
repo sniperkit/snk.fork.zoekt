@@ -29,10 +29,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/google/zoekt"
-	"github.com/google/zoekt/build"
-	"github.com/google/zoekt/query"
-	"github.com/google/zoekt/shards"
+	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/zoekt/pkg/build"
+	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/zoekt/pkg/shards"
 )
 
 func readTree(dir string) (map[string][]byte, error) {

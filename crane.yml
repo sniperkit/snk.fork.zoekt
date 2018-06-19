@@ -1,0 +1,65 @@
+---
+commands:
+  test: run zoekt-dev make test
+  build: run zoekt-dev make build
+  gofmt: run zoekt-dev gofmt -w crane
+
+accelerated-mounts:
+  crane:
+    uid: 1000
+    gid: 1000
+
+groups:
+  default:
+  - zoekt
+  dev:
+  - zoekt-dev
+  index:
+  - zkt-archive-idx
+  - zkt-repo-idx
+  - zkt-git-idx
+  - zkt-idx
+  mirror:
+  - zkt-mirror-gerrit
+  - zkt-mirror-github
+  - zkt-mirror-gitiles
+  server:
+  - zkt-webserver
+  - zkt-idxserver
+  test:
+  - zkt-test 
+  web:
+  - zkt-webserver
+  kv:
+  # - svc-redis-v3
+  - svc-redis-v4
+  - svc-memcache
+  - svc-etcd-v2
+  # - svc-etcd-v3
+  proxy:
+  - svc-varnish
+  mq:
+  - svc-rabbitmq
+  # - svc-zeromq
+  # - svc-nsq
+  # - svc-nsq-admin
+  rmdb:
+  - svc-mysql
+  - svc-postgres
+  - svc-mssql
+  - svc-aerospike
+  newsql:
+  - 
+  nosql:
+  - svc-mongodb
+  # - svc-cassandra
+  search:
+  # - svc-elastic-v2
+  # - svc-elastic-v3
+  - svc-elastic-v5
+  # - svc-elastic-v6
+  graph:
+  - svc-neo4j
+  # - svc-cayley
+  # - svc-badger
+  # - svc-eliasdb
