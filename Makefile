@@ -177,14 +177,21 @@ ls-cmd:
 	@echo "list of cli commands: \n"
 	@echo "$(PROG_CMDS)"
 
+.PHONY: docker-build
 docker-build: ## Build docker container
-    @$(foreach cmd, $(PROG_CMDS), $(call docker_build_cmd, $(cmd)))
-    
+	@$(foreach cmd, $(shell ls -1c ./cmd | tr -s " "), $(call docker_build_cmd,$(cmd)))
+
 # @GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "$(BUILD_LDFLAGS)" -o $(DOCKER_BIN_FILE_PATH)-linux -v *.go
 # @cd $(DOCKER_PREFIX_DIR) && docker build --force-rm -t $(DOCKER_IMAGE) --no-cache -f dockerfile-alpine3.7 .
 
 define docker_build_cmd
-    @echo "GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "$(BUILD_LDFLAGS)" -o $(DOCKER_BIN_FILE_PATH)-linux -v *.go"
+    echo ""
+    echo "# Command: $(1)"
+    echo "## Building binary"
+    @GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -v -ldflags "$(BUILD_LDFLAGS)" -o ./cmd/$(1)/docker/$(1)-linux -v ./cmd/$(1)/*.go
+    echo "## Building container"
+    @cd ./cmd/$(1)/docker/ && docker build --force-rm -t $(DOCKER_IMAGE_OWNER)/$(1):$(DOCKER_IMAGE_TAG) --no-cache -f dockerfile-alpine3.7 .
+    echo "--------------------"
 endef
 
 docker-run: ## Run docker container locally
@@ -214,7 +221,7 @@ install: ## Install binary in your GOBIN path
 	@$(BIN_BASE_NAME) --version
 
 GOX_OSARCH_LIST := "darwin/386 darwin/amd64 linux/386 linux/amd64 linux/arm freebsd/386 freebsd/amd64 freebsd/arm netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 openbsd/arm windows/386 windows/amd64"
-GOX_CMD_LIST := $(shell list -1 $(CURDIR)/cmd)
+GOX_CMD_LIST := $(shell ls -1 $(CURDIR)/cmd)
 
 dist-gox: ## Build all dist binaries for linux, darwin in amd64 arch.
 	gox -ldflags="$(BUILD_LDFLAGS)" -osarch="$(GOX_OSARCH_LIST)" -output="$(DIST_PREFIX_DIR)/{{.Dir}}_{{.OS}}_{{.Arch}}" $(REPO_URI)/cmd/...
