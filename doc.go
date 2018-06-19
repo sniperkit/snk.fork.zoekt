@@ -30,7 +30,8 @@
 //
 // - zoekt-mirror-gitiles - Mirror remote Gitiles - CLI
 // $ go install github.com/sniperkit/zoekt/cmd/zoekt-mirror-gitiles
-// $ $GOPATH/bin/zoekt-mirror-gitiles -dest ~/repos/ https://gfiber.googlesource.com
+// $ $GOPATH/bin/zoekt-mirror-gitiles -dest ~/repos/ --user avelino
+// $ $GOPATH/bin/zoekt-mirror-gitiles -dest ~/repos/ --org segmentio
 //
 // - zoekt-mirror-gerrit - Mirror remote Gerrit - CLI
 // $ go install github.com/sniperkit/zoekt/cmd/zoekt-mirror-gerrit

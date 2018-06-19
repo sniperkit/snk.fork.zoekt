@@ -1,0 +1,9 @@
+[Unit]
+Description=zoekt webserver
+
+[Service]
+ExecStart=/zoekt/bin/zoekt-webserver -index /zoekt/index -listen :443  --ssl_cert /zoekt/etc/cert.pem   --ssl_key /zoekt/etc/key.pem
+Restart=always
+
+[Install]
+WantedBy=default.target
