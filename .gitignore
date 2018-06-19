@@ -1,5 +1,7 @@
 *~
 
+.staging
+
 cmd/zoekt/zoekt
 cmd/zoekt-archive-index/zoekt-archive-index
 cmd/zoekt-git-index/zoekt-git-index

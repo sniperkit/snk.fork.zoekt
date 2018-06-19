@@ -72,7 +72,9 @@ BUILD_TIME 		:= $(shell date)
 ## golang
 
 GO15VENDOREXPERIMENT=1
-BUILD_LDFLAGS = \
+BUILD_LDFLAGS = -X '$(REPO_URI)/pkg.Version=$(BUILD_VERSION)'
+
+BUILD_LDFLAGS_ALL = \
 	-X '$(REPO_URI)/pkg.Version=$(BUILD_VERSION)' \
 	-X '$(REPO_URI)/pkg.branchName=$(REPO_BRANCH)' \
 	-X '$(REPO_URI)/pkg.commitHash=$(COMMIT_HASH)' \
@@ -179,7 +181,7 @@ ls-cmd:
 
 .PHONY: docker-build
 docker-build: ## Build docker container
-	@$(foreach cmd, $(shell ls -1c ./cmd | tr -s " "), $(call docker_build_cmd,$(cmd)))
+	@$(foreach cmd, $(shell ls -1c ./cmd), $(call docker_build_cmd,$(cmd)))
 
 # @GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -ldflags "$(BUILD_LDFLAGS)" -o $(DOCKER_BIN_FILE_PATH)-linux -v *.go
 # @cd $(DOCKER_PREFIX_DIR) && docker build --force-rm -t $(DOCKER_IMAGE) --no-cache -f dockerfile-alpine3.7 .
@@ -212,13 +214,21 @@ docker-tag: ## Tag latest docker image for this program
 docker-push: ## Push docker image to image registry
 	@echo "'docker-push' is not implemented yet..."
 
+.PHONY: build
 build: ## Build binary for local operating system 
-	# @go build -ldflags "$(BUILD_LDFLAGS)" -o ./bin/$(BIN_FILE_PATH) *.go
-	@go build -v  -ldflags "-X main.versionNumber=${VERSION} -X main.operatingSystem=${OS} -X main.architecture=${ARCH}" -o $(BIN_PREFIX_DIR)/$(PROG_NAME) ./cmd/$(PROG_NAME)/*.go
+	@$(foreach cmd, $(shell ls -1 $(CURDIR)/cmd), $(call build_cmd,$(cmd)))
 
+define build_cmd	
+	go build -ldflags "$(BUILD_LDFLAGS)" -o $(BIN_PREFIX_DIR)/$(1) ./cmd/$(1)/*.go && echo "- Path: $(BIN_PREFIX_DIR)/$(1)";
+endef
+
+.PHONY: install
 install: ## Install binary in your GOBIN path
-	go install -v -ldflags "-X main.versionNumber=${VERSION} -X main.operatingSystem=${OS} -X main.architecture=${ARCH}" ./cmd/$(PROG_NAME)/*.go
-	@$(BIN_BASE_NAME) --version
+	$(foreach cmd, $(shell ls -1 $(CURDIR)/cmd), $(call install_cmd,$(cmd)))
+
+define install_cmd
+	go install -ldflags "$(BUILD_LDFLAGS)" $(REPO_URI)/cmd/$(1) && echo "- Path: $(GOPATH)/src/$(1)";
+endef
 
 GOX_OSARCH_LIST := "darwin/386 darwin/amd64 linux/386 linux/amd64 linux/arm freebsd/386 freebsd/amd64 freebsd/arm netbsd/386 netbsd/amd64 netbsd/arm openbsd/386 openbsd/amd64 openbsd/arm windows/386 windows/amd64"
 GOX_CMD_LIST := $(shell ls -1 $(CURDIR)/cmd)
