@@ -24,12 +24,54 @@ import (
 	"runtime/pprof"
 	"time"
 
+	// external
+	jsoniter "github.com/sniperkit/snk.golang.json/pkg/json/v1"
+
+	// internal
 	"github.com/sniperkit/zoekt/pkg"
 	"github.com/sniperkit/zoekt/pkg/query"
 	"github.com/sniperkit/zoekt/pkg/shards"
 )
 
 const CONTEXT = 20
+
+var (
+	json = jsoniter.ConfigCompatibleWithStandardLibrary
+)
+
+type JSONOutput struct {
+	Options struct {
+		Query   string `json:"query"`
+		Context int    `json:"context"`
+	} `json:"options"`
+	Results []*JSONResult `json:"results"`
+}
+
+type JSONResult struct {
+	FileName    string  `json:"filename"`
+	Score       float64 `json:"score"`
+	LineContent string  `json:"line_content"`
+	LineNumber  int     `json:"line_number"`
+}
+
+func displayJSONMatches(files []zoekt.FileMatch, pat string) error {
+	input := &JSONOutput{}
+	input.Options.Context = CONTEXT
+	input.Results = make([]*JSONResult, 0)
+	for _, f := range files {
+		for _, m := range f.LineMatches {
+			result := &JSONResult{f.FileName, m.Score, string(m.Line), m.LineNumber}
+			input.Results = append(input.Results, result)
+		}
+	}
+	output, err := json.MarshalIndent(input, "", "  ")
+	if err != nil {
+		return err
+	}
+	os.Stdout.Write(output)
+	os.Exit(1)
+	return nil
+}
 
 func displayMatches(files []zoekt.FileMatch, pat string) {
 	for _, f := range files {
@@ -59,6 +101,8 @@ func loadShard(fn string) (zoekt.Searcher, error) {
 }
 
 func main() {
+	displayFormat := flag.String("displayFormat", "json", "output results")
+
 	shard := flag.String("shard", "", "search in a specific shard")
 	index := flag.String("index_dir",
 		filepath.Join(os.Getenv("HOME"), ".zoekt"), "search for index files in `directory`")
@@ -131,7 +175,17 @@ func main() {
 		log.Fatal(err)
 	}
 
-	displayMatches(sres.Files, pat)
+	switch *displayFormat {
+	case "json":
+		if err := displayJSONMatches(sres.Files, pat); err != nil {
+			log.Fatal(err)
+		}
+	case "text":
+		fallthrough
+	default:
+		displayMatches(sres.Files, pat)
+	}
+
 	if *verbose {
 		log.Printf("stats: %#v", sres.Stats)
 	}
