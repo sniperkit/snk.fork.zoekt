@@ -1,3 +1,9 @@
+/*
+Sniperkit-Bot
+- Date: 2018-08-12 12:11:26.372554071 +0200 CEST m=+0.045728207
+- Status: analyzed
+*/
+
 // Zoekt: a fast text search engine, intended for use with source code. (Pronunciation: roughly as you would pronounce "zooked" in English)
 
 // Package cmd of the Zoekt kit contains the following CLI and Webservices:

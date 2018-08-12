@@ -1,3 +1,9 @@
+/*
+Sniperkit-Bot
+- Date: 2018-08-12 12:11:26.372554071 +0200 CEST m=+0.045728207
+- Status: analyzed
+*/
+
 // Copyright 2017 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,7 +20,9 @@
 
 package gitindex
 
-import "regexp"
+import (
+	"regexp"
+)
 
 // Filter is a include/exclude filter to be used for repo names.
 type Filter struct {

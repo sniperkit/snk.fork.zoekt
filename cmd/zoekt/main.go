@@ -1,3 +1,9 @@
+/*
+Sniperkit-Bot
+- Date: 2018-08-12 12:11:26.372554071 +0200 CEST m=+0.045728207
+- Status: analyzed
+*/
+
 // Copyright 2016 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,7 +32,6 @@ import (
 
 	// external
 	jsoniter "github.com/sniperkit/snk.golang.json/pkg/json/v1"
-
 	// internal
 	"github.com/sniperkit/zoekt/pkg"
 	"github.com/sniperkit/zoekt/pkg/query"

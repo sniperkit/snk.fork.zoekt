@@ -1,3 +1,9 @@
+/*
+Sniperkit-Bot
+- Date: 2018-08-12 12:11:26.372554071 +0200 CEST m=+0.045728207
+- Status: analyzed
+*/
+
 // Copyright 2016 Google Inc. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,10 +35,9 @@ import (
 	"sync"
 	"time"
 
-	"golang.org/x/net/context"
-
 	"github.com/sniperkit/zoekt/pkg"
 	"github.com/sniperkit/zoekt/pkg/query"
+	"golang.org/x/net/context"
 )
 
 var Funcmap = template.FuncMap{

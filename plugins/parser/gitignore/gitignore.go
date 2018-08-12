@@ -1,4 +1,10 @@
 /*
+Sniperkit-Bot
+- Date: 2018-08-12 12:11:26.372554071 +0200 CEST m=+0.045728207
+- Status: analyzed
+*/
+
+/*
 Package gitignore provides a Checker that can be used to determine
 whether a specific file is excluded by a .gitignore file.
 
