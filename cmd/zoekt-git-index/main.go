@@ -28,9 +28,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/build"
-	"github.com/sniperkit/zoekt/pkg/gitindex"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
 )
 
 var _ = log.Println

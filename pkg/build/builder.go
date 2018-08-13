@@ -39,8 +39,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/ctags"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/ctags"
 )
 
 var DefaultDir = filepath.Join(os.Getenv("HOME"), ".zoekt")

@@ -25,7 +25,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 // FileMatch contains all the matches within a file.

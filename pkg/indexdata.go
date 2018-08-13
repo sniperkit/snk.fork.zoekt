@@ -25,7 +25,7 @@ import (
 	"hash/crc64"
 	"unicode/utf8"
 
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 // indexData holds the pattern-independent data that we have to have

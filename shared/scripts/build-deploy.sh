@@ -20,7 +20,7 @@ mkdir -p ${out}
 
 for d in cmd/*
 do
-  go build -tags netgo -ldflags "-X github.com/sniperkit/zoekt/pkg.Version=$VERSION"  -o ${out}/$(basename $d) github.com/sniperkit/zoekt/pkg/$d
+  go build -tags netgo -ldflags "-X github.com/sniperkit/snk.fork.zoekt/pkg.Version=$VERSION"  -o ${out}/$(basename $d) github.com/sniperkit/snk.fork.zoekt/pkg/$d
 done
 
 cat <<EOF > ${out}/deploy.sh

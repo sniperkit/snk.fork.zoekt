@@ -31,9 +31,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/query"
-	"github.com/sniperkit/zoekt/pkg/shards"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
 	"golang.org/x/net/context"
 )
 

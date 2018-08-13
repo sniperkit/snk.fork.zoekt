@@ -33,10 +33,10 @@ import (
 	"sort"
 	"testing"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/build"
-	"github.com/sniperkit/zoekt/pkg/query"
-	"github.com/sniperkit/zoekt/pkg/shards"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
 	"gopkg.in/src-d/go-git.v4/plumbing"
 )
 

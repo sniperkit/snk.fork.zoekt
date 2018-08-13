@@ -355,7 +355,7 @@ var TemplateText = map[string]string{
 
   <div class="container">
     <p>
-      This is <a href="http://github.com/sniperkit/zoekt/pkg"><em>zoekt</em> (IPA: /zukt/)</a>,
+      This is <a href="http://github.com/sniperkit/snk.fork.zoekt/pkg"><em>zoekt</em> (IPA: /zukt/)</a>,
       an open-source full text search engine. It's pronounced roughly as you would
       pronounce "zooked" in English.
     </p>

@@ -8,7 +8,7 @@ For submitting patches, please use gerrit:
 
 * Make sure all tests pass:
 
-    go test github.com/sniperkit/zoekt/pkg/...
+    go test github.com/sniperkit/snk.fork.zoekt/pkg/...
 
 * Add the following to your .git/config:
 

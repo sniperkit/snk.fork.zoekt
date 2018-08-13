@@ -29,7 +29,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/sniperkit/zoekt/pkg/gitindex"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
 )
 
 type crawlTarget struct {

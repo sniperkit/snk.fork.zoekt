@@ -9,7 +9,7 @@ go:
   - 1.10.x
   - tip
 
-go_import_path: github.com/sniperkit/zoekt
+go_import_path: github.com/sniperkit/snk.fork.zoekt
 
 matrix:
   fast_finish: true

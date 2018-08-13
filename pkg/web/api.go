@@ -23,7 +23,7 @@ package web
 import (
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
 )
 
 type LastInput struct {

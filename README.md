@@ -11,26 +11,26 @@ INSTRUCTIONS
 
 Downloading:
 
-    go get github.com/sniperkit/zoekt
+    go get github.com/sniperkit/snk.fork.zoekt
 
 Indexing:
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt-index
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt-index
     $GOPATH/bin/zoekt-index .
 
 Searching
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt
     $GOPATH/bin/zoekt 'ngram f:READ'
 
 Indexing git repositories:
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt-git-index
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt-git-index
     $GOPATH/bin/zoekt-git-index -branches master,stable-1.4 -prefix origin/ .
 
 Indexing repo repositories:
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt-{repo-index,mirror-gitiles}
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt-{repo-index,mirror-gitiles}
     zoekt-mirror-gitiles -dest ~/repos/ https://gfiber.googlesource.com
     zoekt-repo-index \
        -name gfiber \
@@ -42,7 +42,7 @@ Indexing repo repositories:
 
 Starting the web interface
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt-webserver
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt-webserver
     $GOPATH/bin/zoekt-webserver -listen :6070
 
 A more organized installation on a Linux server should use a systemd unit file,
@@ -64,7 +64,7 @@ SEARCH SERVICE
 
 Zoekt comes with a small service management program:
 
-    go install github.com/sniperkit/zoekt/cmd/zoekt-indexserver
+    go install github.com/sniperkit/snk.fork.zoekt/cmd/zoekt-indexserver
 
     cat << EOF > config.json
     [{"GithubUser": "username"},

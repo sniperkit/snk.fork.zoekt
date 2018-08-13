@@ -35,10 +35,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/build"
-	"github.com/sniperkit/zoekt/pkg/shards"
-	"github.com/sniperkit/zoekt/pkg/web"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/web"
 	"golang.org/x/net/trace"
 )
 

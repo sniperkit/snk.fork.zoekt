@@ -33,9 +33,9 @@ import (
 	// external
 	jsoniter "github.com/sniperkit/snk.golang.json/pkg/json/v1"
 	// internal
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/query"
-	"github.com/sniperkit/zoekt/pkg/shards"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
 )
 
 const CONTEXT = 20

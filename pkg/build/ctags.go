@@ -30,8 +30,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/ctags"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/ctags"
 )
 
 func runCTags(bin string, inputs map[string][]byte) ([]*ctags.Entry, error) {

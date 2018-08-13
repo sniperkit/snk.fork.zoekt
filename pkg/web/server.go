@@ -35,8 +35,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"golang.org/x/net/context"
 )
 

@@ -26,7 +26,7 @@ import (
 	"sort"
 	"unicode/utf8"
 
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 // candidateMatch is a candidate match for a substring.

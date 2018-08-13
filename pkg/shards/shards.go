@@ -30,8 +30,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"golang.org/x/net/trace"
 	"golang.org/x/sync/semaphore"
 )

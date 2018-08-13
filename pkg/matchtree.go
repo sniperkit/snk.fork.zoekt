@@ -27,7 +27,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/sniperkit/zoekt/pkg/query"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 // A docIterator iterates over documents in order.

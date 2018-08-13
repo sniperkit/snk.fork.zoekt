@@ -28,7 +28,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sniperkit/zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
 )
 
 func (s *Server) formatResults(result *zoekt.SearchResult, query string, localPrint bool) ([]*FileMatch, error) {

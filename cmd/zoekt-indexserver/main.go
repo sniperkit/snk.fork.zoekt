@@ -39,8 +39,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sniperkit/zoekt/pkg"
-	"github.com/sniperkit/zoekt/pkg/gitindex"
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
 )
 
 const day = time.Hour * 24
