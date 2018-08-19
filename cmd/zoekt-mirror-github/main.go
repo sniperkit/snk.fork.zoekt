@@ -37,9 +37,10 @@ import (
 	"strings"
 
 	"github.com/google/go-github/github"
-	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
 	"golang.org/x/oauth2"
 	git "gopkg.in/src-d/go-git.v4"
+
+	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
 )
 
 func main() {

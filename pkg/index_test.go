@@ -30,6 +30,7 @@ import (
 	"testing"
 
 	"github.com/kylelemons/godebug/pretty"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 

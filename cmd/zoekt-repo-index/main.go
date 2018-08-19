@@ -48,11 +48,12 @@ import (
 	"strings"
 
 	"github.com/google/slothfs/manifest"
+	git "gopkg.in/src-d/go-git.v4"
+	"gopkg.in/src-d/go-git.v4/plumbing"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/gitindex"
-	git "gopkg.in/src-d/go-git.v4"
-	"gopkg.in/src-d/go-git.v4/plumbing"
 )
 
 var _ = log.Println

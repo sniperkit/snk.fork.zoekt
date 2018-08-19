@@ -27,8 +27,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"golang.org/x/net/trace"
+
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 const maxUInt16 = 0xffff

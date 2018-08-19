@@ -35,11 +35,12 @@ import (
 	"strings"
 	"time"
 
+	"golang.org/x/net/trace"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/web"
-	"golang.org/x/net/trace"
 )
 
 const logFormat = "2006-01-02T15-04-05.999999999Z07"

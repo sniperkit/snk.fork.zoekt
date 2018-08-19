@@ -30,10 +30,11 @@ import (
 	"sort"
 	"time"
 
-	"github.com/sniperkit/snk.fork.zoekt/pkg"
-	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"golang.org/x/net/trace"
 	"golang.org/x/sync/semaphore"
+
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 )
 
 type rankedShard struct {

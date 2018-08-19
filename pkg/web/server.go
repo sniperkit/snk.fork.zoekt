@@ -35,9 +35,10 @@ import (
 	"sync"
 	"time"
 
+	"golang.org/x/net/context"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
-	"golang.org/x/net/context"
 )
 
 var Funcmap = template.FuncMap{

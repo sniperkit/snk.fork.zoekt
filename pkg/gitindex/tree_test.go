@@ -33,11 +33,12 @@ import (
 	"sort"
 	"testing"
 
+	"gopkg.in/src-d/go-git.v4/plumbing"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
-	"gopkg.in/src-d/go-git.v4/plumbing"
 )
 
 func createSubmoduleRepo(dir string) error {

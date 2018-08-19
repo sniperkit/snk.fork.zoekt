@@ -31,10 +31,11 @@ import (
 	"testing"
 	"time"
 
+	"golang.org/x/net/context"
+
 	"github.com/sniperkit/snk.fork.zoekt/pkg"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/query"
 	"github.com/sniperkit/snk.fork.zoekt/pkg/shards"
-	"golang.org/x/net/context"
 )
 
 func TestBasic(t *testing.T) {

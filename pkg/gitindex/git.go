@@ -36,13 +36,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sniperkit/snk.fork.zoekt/pkg"
-	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
 	git "gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/config"
 	"gopkg.in/src-d/go-git.v4/plumbing"
 	plumcfg "gopkg.in/src-d/go-git.v4/plumbing/format/config"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
+
+	"github.com/sniperkit/snk.fork.zoekt/pkg"
+	"github.com/sniperkit/snk.fork.zoekt/pkg/build"
 )
 
 // RepoModTime returns the time of last fetch of a git repository.
